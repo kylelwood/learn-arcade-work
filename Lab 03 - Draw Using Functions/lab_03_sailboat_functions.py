@@ -69,6 +69,6 @@ def main():
 
 
 main()
-on_draw(1/60)
+on_draw(1)
 arcade.finish_render()
 arcade.run()
