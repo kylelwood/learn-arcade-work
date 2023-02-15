@@ -1,10 +1,5 @@
 import arcade
 
-arcade.open_window(600, 600, "seaside_sunset_lab3")
-
-arcade.set_background_color(arcade.color.BURNT_ORANGE)
-arcade.start_render()
-
 
 def draw_sun():
     # draw the sun
@@ -47,28 +42,36 @@ def draw_land():
 
 
 def on_draw(time):
-    # add -1 to x value to make sailboat move left
-    on_draw.sailboat1_x += -5
-
-    """draw sailboat every 1/20 second"""
-    draw_sailboat(on_draw.sailboat1_x, 1)
-
-
-# sailboat starting point
-on_draw.sailboat1_x = 10
-
-
-def main():
+    arcade.start_render()
     draw_sun()
     draw_house()
     draw_sea()
     draw_land()
+    draw_sailboat(on_draw.sailboat1_x, 1)
 
-    # call on_draw function every 1/20 second
-    arcade.schedule(on_draw, 1/20)
 
+# add -1 value to make sailboat move left
+on_draw.sailboat1_x -= 3
+
+
+if on_draw.sailboat1_x < -200:
+    on_draw.sailboat1_x = 200
+
+
+arcade.finish_render()
+
+
+# sailboat starting point
+on_draw.draw_sailboat = 200
+
+
+def main():
+    arcade.open_window(600, 600, "seaside_sunset_lab3")
+    arcade.set_background_color(arcade.color.BURNT_ORANGE)
+
+
+# call on_draw function every 1/20 second
+arcade.schedule(on_draw, 1/20)
+arcade.run()
 
 main()
-on_draw(1)
-arcade.finish_render()
-arcade.run()
