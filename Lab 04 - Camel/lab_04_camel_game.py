@@ -77,11 +77,11 @@ def main():
             The camel has been returned to the natives!
             You are now their prisoner.""")
                 done = True
-            if camel_thirst <= 5:
+            if camel_thirst >= 5:
                 print("Thirst is halfway drained.")
-            if camel_thirst <= 2:
+            if camel_thirst >= 2:
                 print("Your camel is dying of thirst!")
-            if camel_thirst <= 0:
+            if camel_thirst >= 0:
                 print("""You lose!
             The camel has died!
             You will be caught soon.""")
