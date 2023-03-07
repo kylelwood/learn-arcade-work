@@ -1,5 +1,6 @@
 class Room:
     """This class defines the rooms"""
+
     def __init__(self, description, north, south, east, west):
         self.description = description
         self.north = north
@@ -65,7 +66,8 @@ You must re-enter the living room to continue.""", 0, None, None, None)
 
     while not done:
         print(room_list[current_room].description)
-        direction = input("Which way would you like to go? (N, S, E, W, Q to quit) ").lower()
+        direction = input("""
+Which way would you like to go? (N, S, E, W, Q to quit) """).lower()
 
         if direction[0] == 'n':
             next_room = room_list[current_room].north
