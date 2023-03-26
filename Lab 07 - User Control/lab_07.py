@@ -10,8 +10,9 @@ GAME_TITLE = "FLYING COIN RACE"
 CHARACTER_SCALING = 1
 MOVEMENT_SPEED = 2.5
 
+
 def load_texture_pair(filename):
-    return [arcade.load_texture(filename), arcade.load_texture(filename, flipped_horizontally = True)]
+    return [arcade.load_texture(filename), arcade.load_texture(filename, flipped_horizontally=True)]
 
 
 class FighterPlane:
@@ -31,6 +32,9 @@ class FighterPlane:
         self.fly_texture_pair = load_texture_pair(self.image)
 
         self.texture = self.fly_texture_pair[0]
+
+        self.engine_noise = arcade.load_sound("prop-plane-14513.mp3")
+        arcade.play_sound(self.engine_noise)
 
     def update(self):
         self.position_x += self.change_x
@@ -71,8 +75,6 @@ class MyGame(arcade.Window):
 
         self.player1 = FighterPlane(700, 500, 0, 0, 5, "biplane-158327_1280.png")
         self.player2 = FighterPlane(50, 500, 0, 0, 5, "green-304704_640.png")
-
-
 
     def on_draw(self):
         arcade.start_render()
