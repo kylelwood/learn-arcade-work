@@ -80,6 +80,28 @@ class MyGame(arcade.Window):
                     wall.center_y = y
                     self.wall_list.append(wall)
 
+        for y in range(0, 1800, 64):
+            for x in range(0, 1800, 64):
+                wall = arcade.Sprite("tile_0000.png", SPRITE_SCALING_BOX)
+                wall.center_x = x
+                wall.center_y = 0
+                self.wall_list.append(wall)
+
+                wall = arcade.Sprite("tile_0000.png", SPRITE_SCALING_BOX)
+                wall.center_x = x
+                wall.center_y = 1800
+                self.wall_list.append(wall)
+
+                wall = arcade.Sprite("tile_0000.png", SPRITE_SCALING_BOX)
+                wall.center_x = 0
+                wall.center_y = y
+                self.wall_list.append(wall)
+
+                wall = arcade.Sprite("tile_0000.png", SPRITE_SCALING_BOX)
+                wall.center_x = 1800
+                wall.center_y = y
+                self.wall_list.append(wall)
+
         self.physics_engine = arcade.PhysicsEngineSimple(self.player_sprite, self.wall_list)
 
         # Create the coins
