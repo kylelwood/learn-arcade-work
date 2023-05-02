@@ -317,8 +317,8 @@ class MyGame(arcade.Window):
         self.player_list.update()
         self.bullet_list.update()
 
-        #if self.health <= 0:
-            #arcade.exit()
+        if self.health <= 0:
+            arcade.exit()
 
         # Calculate speed
         self.player_sprite.change_x = 0
