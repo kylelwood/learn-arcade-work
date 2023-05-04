@@ -9,6 +9,7 @@ import arcade
 # Set how many rows and columns we will have
 ROW_COUNT = 10
 COLUMN_COUNT = 10
+CELL_COUNT = 100
 
 # This sets the WIDTH and HEIGHT of each grid location
 WIDTH = 20
@@ -42,6 +43,10 @@ class MyGame(arcade.Window):
             self.grid.append([])
             for column in range(COLUMN_COUNT):
                 self.grid[row].append(0)  # Append a cell
+
+        self.cells = []
+        for cells in range(101):
+            self.cells.append(cells)
 
         arcade.set_background_color(arcade.color.BLACK)
 
@@ -89,6 +94,12 @@ class MyGame(arcade.Window):
                 self.grid[row][column] = 1
             else:
                 self.grid[row][column] = 0
+
+            for cells in self.cells(CELL_COUNT):
+
+                print(f"Total of", cells, "Cells are selected.")
+
+
 
 
 def main():
